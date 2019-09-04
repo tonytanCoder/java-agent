@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/tx
+                           http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+    <description>配置</description>
+
+	<bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+		<property name="scopes">
+			<map>
+				<entry key="thread" value="com.example.ioc.scope.ThreadScope"></entry>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="settleService" class="com.example.ioc.beanlife.SettleService"></bean>
+	<bean id="balanceService" class="com.example.ioc.beanlife.BalanceService"></bean>
+	
+<!-- 	
+	<bean id="userservice" class="com.example.ioc.factorybean.Userservice"
+		scope="thread" factory-bean="factorybean">
+	</bean> -->
+
+
+</beans>
